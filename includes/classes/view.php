@@ -1,8 +1,5 @@
 <?php
 
-#Header
-include("./includes/pages/header.php");
-
 $page = (isset($_GET['page'])) ? $_GET['page'] : "";
 
 switch ($page) {
