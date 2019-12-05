@@ -11,10 +11,9 @@ class User {
     private $password;
 
     public function __construct($name, $value) {
-        $this->id = $id;
-
         $queryRes = DatabaseHandler::executeQuery("SELECT * FROM nuitinfo_users WHERE " . $name . " = ?", array($value));
 
+        $this->id = $id = $queryRes["id"];
         $this->username = $queryRes["username"];
         $this->email = $queryRes["email"];
         $this->password = $queryRes["password"];
