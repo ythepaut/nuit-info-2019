@@ -1,5 +1,7 @@
 <?php
 
+include_once("./includes/classes/obj/database.php");
+
 
 
 class User {
@@ -16,7 +18,7 @@ class User {
 
         $this->username = $queryRes["username"];
         $this->email = $queryRes["email"];
-        $this->password = $queryRes["password"]; 
+        $this->password = $queryRes["password"];
     }
 
     public function getId() {
@@ -27,5 +29,8 @@ class User {
         return $this->name;
     }
 }
+
+$u = new User(0);
+var_dump($u);
 
 ?>

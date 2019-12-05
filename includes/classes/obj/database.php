@@ -13,10 +13,9 @@ class DatabaseHandler {
 
     private static $instance;
 
-    
     public function __construc() {
-        $connection = mysqli_connect($credentials['ip'], $credentials['login'], $credentials['password'], $credentials['login']);
-        mysqli_set_charset($connection, "utf8");
+        $this->connection = mysqli_connect($credentials['ip'], $credentials['login'], $credentials['password'], $credentials['login']);
+        mysqli_set_charset($this->connection, "utf8");
 
         $instance = $this;
 
@@ -24,18 +23,18 @@ class DatabaseHandler {
     }
 
     public static function getInstance() {
-        return $instance;
+        return DatabaseHandler::$instance;
     }
 
 
     /**
      * Fonction qui execute une requete MySQL dans la base de données
-     * 
+     *
      * @param string        $query      -       Requete SQL
      * @param array         $args       -       Arguements de la requete
-     * 
+     *
      * @return array
-     * 
+     *
      */
     public function executeQuery($query, $args) {
 
