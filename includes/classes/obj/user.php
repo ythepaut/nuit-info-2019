@@ -13,8 +13,7 @@ class User {
     public function __construct($id) {
         $this->id = $id;
 
-        $db = DatabaseHandler::getInstance();
-        $queryRes = $db->executeQuery("SELECT * FROM nuitinfo_users WHERE id = ?", $id);
+        $queryRes = DatabaseHandler::executeQuery("SELECT * FROM nuitinfo_users WHERE id = ?", array($id));
 
         $this->username = $queryRes["username"];
         $this->email = $queryRes["email"];
@@ -29,8 +28,5 @@ class User {
         return $this->name;
     }
 }
-
-$u = new User(0);
-var_dump($u);
 
 ?>

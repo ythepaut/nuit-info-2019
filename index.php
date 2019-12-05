@@ -9,10 +9,10 @@ error_reporting(E_ALL);
 
 #Configurations
 include_once("./includes/classes/obj/database.php");
-
-$db = new DatabaseHandler();
-
 include_once("./includes/classes/obj/user.php");
+
+$u = new User(0);
+var_dump($u);
 
 #Fonctions utiles
 include_once("./includes/classes/utils.php");

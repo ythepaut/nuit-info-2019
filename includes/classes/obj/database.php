@@ -1,31 +1,21 @@
 <?php
 
 class DatabaseHandler {
-
-    private $credentials = array(
+    private static $credentials = array(
         "ip" => "ythepautfcninfo.mysql.db",
         "login" => "ythepautfcninfo",
-        "passwd" => "ANtaFIesRG5h0w2I",
+        "password" => "ANtaFIesRG5h0w2I",
         "base" => "ythepautfcninfo"
     );
 
-    private $connection;
+    private static $connection;
 
-    private static $instance;
-
-    public function __construc() {
-        $this->connection = mysqli_connect($credentials['ip'], $credentials['login'], $credentials['password'], $credentials['login']);
-        mysqli_set_charset($this->connection, "utf8");
-
-        $instance = $this;
+    public static function init() {
+        DatabaseHandler::$connection = mysqli_connect(DatabaseHandler::$credentials['ip'], DatabaseHandler::$credentials['login'], DatabaseHandler::$credentials['password'], DatabaseHandler::$credentials['login']);
+        mysqli_set_charset(DatabaseHandler::$connection, "utf8");
 
         //TODO Tester la connexion
     }
-
-    public static function getInstance() {
-        return DatabaseHandler::$instance;
-    }
-
 
     /**
      * Fonction qui execute une requete MySQL dans la base de données
@@ -36,22 +26,24 @@ class DatabaseHandler {
      * @return array
      *
      */
-    public function executeQuery($query, $args) {
-
+    public static function executeQuery($query, $args) {
         $paramTypes = "";
         foreach ($args as $arg) {
-            if ($arg instanceof string) {
-                $paramTypes .= "s";
-            } elseif ($arg instanceof integer) {
+            if (is_int($arg)) {
                 $paramTypes .= "i";
-            } elseif ($arg instanceof boolean) {
+            }
+            elseif (is_string($arg)) {
+                $paramTypes .= "s";
+            } elseif (is_bool($arg)) {
                 $paramTypes .= "b";
-            } elseif ($arg instanceof float) {
+            } elseif (is_bool($arg)) {
                 $paramTypes .= "d";
+            } else {
+                throw new Exception("Mauvais type");
             }
         }
 
-        $statement = $this->$connection->prepare($query);
+        $statement = DatabaseHandler::$connection->prepare($query);
         $statement->bind_param($paramTypes, $args);
         $statement->execute();
         $result = $statement->get_result();
@@ -61,9 +53,8 @@ class DatabaseHandler {
         return $data;
 
     }
-
-
-
 }
+
+DatabaseHandler::init();
 
 ?>
