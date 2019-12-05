@@ -11,6 +11,7 @@ error_reporting(E_ALL);
 include_once("./includes/classes/obj/database.php");
 include_once("./includes/classes/obj/user.php");
 include_once("./includes/classes/obj/job.php");
+include_once("./includes/classes/config.php");
 
 $u = new Job("id", 0);
 var_dump($u);

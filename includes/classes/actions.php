@@ -13,7 +13,10 @@ switch ($action) {
         session_destroy();
         header("Location: /");
         break;
-
+    case "blind-mode":
+        $_SESSION["blindMode"] = !$_SESSION["blindMode"];
+        header("Location: /");
+        break;
     default:
         throw new Exception("ERROR_MISSING_ACTION");
         break;
