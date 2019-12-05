@@ -10,8 +10,9 @@ error_reporting(E_ALL);
 #Configurations
 include_once("./includes/classes/obj/database.php");
 include_once("./includes/classes/obj/user.php");
+include_once("./includes/classes/obj/job.php");
 
-$u = new User("id", 0);
+$u = new Job("id", 0);
 var_dump($u);
 
 #Fonctions utiles
