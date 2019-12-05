@@ -11,8 +11,9 @@ error_reporting(E_ALL);
 include_once("./includes/classes/obj/database.php");
 include_once("./includes/classes/obj/user.php");
 include_once("./includes/classes/obj/job.php");
+include_once("./includes/classes/obj/service.php");
 
-$u = new Job("id", 0);
+$u = new Service("id", 0);
 var_dump($u);
 
 #Fonctions utiles
