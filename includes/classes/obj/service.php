@@ -17,7 +17,7 @@ class Service {
 
         $queryRes = DatabaseHandler::executeQuery("SELECT * FROM nuitinfo_services WHERE " . $name . " = ?", array($value));
 
-        $this->id = $id = $queryRes["id"];
+        $this->id = $queryRes["id"];
         $this->title = $queryRes["title"];
         $this->description = $queryRes["description"];
         $this->categorie = $queryRes["categorie"];
