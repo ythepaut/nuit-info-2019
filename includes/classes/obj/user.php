@@ -2,8 +2,6 @@
 
 include_once("./includes/classes/obj/database.php");
 
-
-
 class User {
     private $id;
     private $username;
