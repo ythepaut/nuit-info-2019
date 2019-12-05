@@ -4,7 +4,7 @@ include_once("./includes/classes/obj/database.php");
 
 
 
-class Job {
+class Service {
     private $id;
     private $title;
     private $description;
@@ -15,7 +15,7 @@ class Job {
 
     public function __construct($name, $value) {
 
-        $queryRes = DatabaseHandler::executeQuery("SELECT * FROM nuitinfo_jobs WHERE " . $name . " = ?", array($value));
+        $queryRes = DatabaseHandler::executeQuery("SELECT * FROM nuitinfo_services WHERE " . $name . " = ?", array($value));
 
         $this->id = $queryRes["id"];
         $this->title = $queryRes["title"];
