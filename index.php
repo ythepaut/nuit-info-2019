@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 include_once("./includes/classes/obj/database.php");
 include_once("./includes/classes/obj/user.php");
 
-$u = new User(0);
+$u = new User("id", 0);
 var_dump($u);
 
 #Fonctions utiles
