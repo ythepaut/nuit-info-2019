@@ -18,6 +18,12 @@ switch ($page) {
     case "jobs":
         include("./includes/pages/jobs.php");
         break;
+    case "connexion":
+        include("./includes/pages/connexion.php");
+        break;
+    case "inscription":
+        include("./includes/pages/inscription.php");
+        break;
 
     case "handicap":
         include("./includes/pages/handicap.php");
