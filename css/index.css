@@ -22,7 +22,7 @@ body {
 }
 
 body#index {
-  background-image: url("../img/back_home.jpg");
+  background-image: url("./resources/img/back_home.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,7 +79,7 @@ body#index {
 }
 
 body#ressources {
-  background-image: url("../img/back_ressources.jpg");
+  background-image: url("./resources/img/back_ressources.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -181,7 +181,7 @@ ul li {
 }
 
 body#services {
-  background-image: url("../img/back_services.jpg");
+  background-image: url("./resources/img/back_services.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
