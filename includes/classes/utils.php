@@ -11,5 +11,19 @@ function getSrc($relative_src) {
     $nb = substr_count($_SERVER['REQUEST_URI'], "/", 0, strlen($_SERVER['REQUEST_URI']));
     return str_repeat("../", $nb - 1) . "." . $relative_src;
 }
+/**
+ * Fonction qui indique si la catégorie sélectionner est valide
+ * @param string        $categorie          -la categorie a tester
+ * 
+ * @return boolean
+ */
+function categorieExist($categorie) {
+    $existe = false;
 
+    if ($categorie == "HANDICAP" || $categorie == "MEDICAL" || $categorie == "AIDE_FINANCIERE" || $categorie == "AIDE_SOCIAL" || $categorie == "SPORT" || $categorie == "ART_CULTURE") {
+        existe = true;
+    }
+
+    return existe;
+}
 ?>
