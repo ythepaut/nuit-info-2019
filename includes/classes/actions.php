@@ -29,11 +29,11 @@ switch ($action) {
  * @param string            $categorie      - La catégorie du service
  * @param array             $location       - La localisation du service
  * @param integer           $ownerId        - L'identifiant du demandeur du service
- * 
+ *
  * @return void
  */
 function ajoutService($title, $description, $categorie, $location, $connection) {
-    if (isset($title, $description, $categorie, $location, $ownerId) && $location != {} && $title != "" && $description != "" && $categorie != "") {
+    if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
         if (categorieExist($categorie)) {
             $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
             $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
