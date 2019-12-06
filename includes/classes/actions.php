@@ -24,6 +24,9 @@ switch ($action) {
     case "ajout-job":
         die(ajoutJob($_POST['title'], $_POST['description'], $_POST['categorie'], $_POST['location'], $connection));
         break;
+    case "teleflyer":
+        die(downloadFile("../../resources/img/affiche_a_f_key.pdf", "flyer.pdf"));
+        break;
     default:
         throw new Exception("ERROR_MISSING_ACTION");
         break;
