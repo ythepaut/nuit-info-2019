@@ -19,10 +19,10 @@
 			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
-					<a href="connexion.html"><li>Connexion</li></a>
+					<a href="/connexion"><li>Connexion</li></a>
 				</div>
 				<div>
-					<a href="inscription.html"><li>Inscription</li></a>
+					<a href="/inscription"><li>Inscription</li></a>
 				</div>
 			</nav>
 		</div>
