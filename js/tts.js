@@ -49,20 +49,24 @@ var last_move = new Date().getTime();
 body.addEventListener('mousemove', e => {
     last_move = new Date().getTime();
     setTimeout(function() {
-        if (new Date().getTime() - last_move > 1000) {
+        if (new Date().getTime() - last_move > 450) {
             var elements = document.querySelectorAll(':hover');
 
             for (let i=0; i<elements.length; i++) {
                 var nodeType = elements[i].nodeName.toLowerCase();
-                var allNodeTypes = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "label"];
 
-                if (allNodeTypes.includes(nodeType)) {
-                    console.log(nodeType);
+                if (["p", "h1", "h2", "h3", "h4", "h5", "h6", "label", "li"].includes(nodeType)) {
                     speak(elements[i].innerHTML);
+                } else if (nodeType === "li") {
+                    speak(elements[i].innerHTML);
+                } else if (nodeType === "img") {
+                    if (elements[i].alt !== "") {
+                        speak(elements[i].alt);
+                    }
                 }
             }
 
             last_move = new Date().getTime();
         }
-    }, 1100);
+    }, 500);
 });
