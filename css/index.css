@@ -458,4 +458,18 @@ input[type=submit] {
   color: #FFFAD2;
 }
 
-/*# sourceMappingURL=index.css.map */
+.error-page {
+  text-align: center;
+  color: #FFFAD2;
+}
+
+.error-page h1 {
+  padding-top: 10px !important;
+}
+
+.error-page img {
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #FFFAD2;
+}
+
