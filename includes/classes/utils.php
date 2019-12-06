@@ -65,15 +65,26 @@ function isValidSession($connection) {
 
 
 /**
- * Fonction qui indique si la catégorie sélectionnée est valide
+ * Fonction qui indique si la catégorie du service sélectionnée est valide
  * 
  * @param string        $categorie              -   Categorie a verifier
  * 
  * @return boolean
  */
-function categorieExist($categorie) {
+function categorieServiceExist($categorie) {
     return ($categorie == "DON" || $categorie == "TRANSPORT" || $categorie == "GARDIENNAGE" || $categorie == "TROC" || $categorie == "VENTE");
 }
 
+
+/**
+ * Fonction qui indique si la catégorie du job sélectionnée est valide
+ * 
+ * @param string        $categorie              -   Categorie a verifier
+ * 
+ * @return boolean
+ */
+function categorieJobExist($categorie) {
+    return ($categorie == "CDI" || $categorie == "CDD" || $categorie == "STAGE");
+}
 
 ?>
