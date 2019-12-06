@@ -22,7 +22,7 @@ body {
 }
 
 body#index {
-  background-image: url("../resources/img/back_home.jpg");
+  background-image: url("../img/back_home.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -258,7 +258,7 @@ body#index {
   }
 }
 body#ressources {
-  background-image: url("../resources/img/back_ressources.jpg");
+  background-image: url("../img/back_ressources.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -331,10 +331,20 @@ h1 {
   padding-bottom: 3px;
 }
 
+.wrap-content li {
+  cursor: pointer;
+}
+
+#sport, #etudiants-etrangers, #medecine, #handicap {
+  opacity: 0.5;
+}
+
 .list-container {
   margin-top: 6vh;
   height: 60vh;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 .list-container .list-element {
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -360,7 +370,7 @@ h1 {
 }
 
 body#services {
-  background-image: url("../resources/img/back_services.jpg");
+  background-image: url("../img/back_services.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -368,7 +378,7 @@ body#services {
 }
 
 body#jobs {
-  background-image: url("../resources/img/back_jobs.jpg");
+  background-image: url("../img/back_jobs.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -473,3 +483,5 @@ input[type=submit] {
   border: 1px solid #FFFAD2;
 }
 
+
+/*# sourceMappingURL=index.css.map */
