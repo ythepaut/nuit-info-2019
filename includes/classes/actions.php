@@ -28,7 +28,7 @@ switch ($action) {
  * @param string            $description    - La description du service
  * @param string            $categorie      - La catégorie du service
  * @param array             $location       - La localisation du service
- * @param integer           $ownerId        - L'identifiant du demandeur du service
+ * @param mysqlconnection   $connection         -   Connexion BDD effectuée dans le fichier config-db.php
  * 
  * @return void
  */
