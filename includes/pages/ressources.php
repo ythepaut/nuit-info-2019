@@ -7,13 +7,13 @@
 		<div id="navigation">
 			<div>
 				<a href="/">
-                    <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="">
+                    <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Retour à la page précédente">
 					<p>Retour</p>
 				</a>
 			</div>
 			<div>
                 <p>Mon compte</p>
-				<img src="<?php echo(getSrc("./resources/img/icon_compte.svg")); ?>" alt="">
+				<img src="<?php echo(getSrc("./resources/img/icon_compte.svg")); ?>" alt="Accéder à mon compte">
 			</div>
 
 		</div>
@@ -34,7 +34,7 @@
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="">
+					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="Afficher plus d'informations">
 				</div>
 			</div>
 			<div class="list-element">
@@ -43,7 +43,7 @@
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="">
+					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="Afficher plus d'informations">
 				</div>
 			</div>
 			<div class="list-element">
@@ -52,7 +52,7 @@
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="">
+					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="Afficher plus d'informations">
 				</div>
 			</div>
 			<div class="list-element">
@@ -61,7 +61,7 @@
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="">
+					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="Afficher plus d'informations">
 				</div>
 			</div>
 			<div class="list-element">
@@ -70,7 +70,7 @@
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
-					<img src="<?php echo(getSrc("./resources/img/img/plus.svg")); ?>" alt="">
+					<img src="<?php echo(getSrc("./resources/img/img/plus.svg")); ?>" alt="Afficher plus d'informations">
 				</div>
 			</div>
 		</div>

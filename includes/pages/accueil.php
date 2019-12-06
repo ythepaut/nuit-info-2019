@@ -16,7 +16,7 @@
 
 <body id="index" class="wrap">
 		<div id="navigation-home">
-			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="">
+			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
 					<li>Connexion</li>
@@ -28,15 +28,15 @@
 		</div>
 		<div id="selection" class="wrap-home">
 			<div>
-				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="">
+				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Ressources à droite">
 				<a href="/ressources"><p>Ressources</p></a>
 			</div>
 			<div>
-				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="">
+				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Services à droite">
 				<a href="/services"><p>Services</p></a>
 			</div>
 			<div>
-				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="">
+				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Jobs à droite">
 				<a href="/jobs"><p>Jobs</p></a>
 			</div>
 		</div>
