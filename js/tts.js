@@ -67,6 +67,10 @@ body.addEventListener('mousemove', e => {
         } else {}
     }
 
+    var div = document.createElement("div");
+    div.innerHTML = text;
+    text = div.textContent || div.innerText || "";
+
     if (inside) {
         if (balise === balise_precedente) {
             balise_precedente = balise;
