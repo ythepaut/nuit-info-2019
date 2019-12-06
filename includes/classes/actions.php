@@ -2,6 +2,7 @@
 session_start();
 
 include_once(getcwd() . "/utils.php");
+include_once(getcwd() . "/config-db.php");
 
 $action = (isset($_POST['action'])) ? $_POST['action'] : "";
 $action = ($action == "" && isset($_GET['action']) && $_GET['action'] != "") ? $_GET['action'] : $action;
@@ -12,7 +13,10 @@ switch ($action) {
         header("Location: /");
         break;
     case "login":
-        header("Location: /");
+        die(login($_POST['login-email'], $_POST['login-password'], $connection));
+        break;
+    case "register":
+        die(register($_POST['register-username'], $_POST['register-email'], $_POST['register-password'], $connection));
         break;
     case "blind-mode":
         $_SESSION["blindMode"] = !$_SESSION["blindMode"];
@@ -58,7 +62,7 @@ function login($email, $passwd, $connection) {
         $userData = $result->fetch_assoc();
 
         //Identifiants correct ?
-        if (isset($userData['id']) && $userData['id'] != null && password_verify(hash('sha512', hash('sha512', $passwd . $userData['salt'])), $userData['password'])) {
+        if (isset($userData['id']) && $userData['id'] != null && password_verify(hash('sha512', $passwd . $userData['salt']), $userData['password'])) {
 
             //Verification du compte
             if ($userData['status'] == "ALIVE") {
@@ -107,11 +111,11 @@ function login($email, $passwd, $connection) {
  *
  * @return string
  */
-function register($username, $email, $passwd, $passwd2, $connection) {
+function register($username, $email, $passwd, $connection) {
     $result = "ERROR_UNKNOWN#Une erreur est survenue.";
 
     //Verification des champs
-    if (isset($username, $email, $passwd, $passwd2, $connection) && $email != "" && $passwd != "" && $passwd2 != "" && $username != "") {
+    if (isset($username, $email, $passwd, $connection) && $email != "" && $passwd != "" && $username != "") {
 
         if (strlen($username) <= 16 && strlen($username) >= 3) {
 
@@ -119,11 +123,19 @@ function register($username, $email, $passwd, $passwd2, $connection) {
 
                 if (strlen($passwd) >= 8 && preg_match("#[0-9]+#", $passwd) && preg_match("#[a-zA-Z]+#", $passwd)) {
 
-                    if ($passwd == $passwd2) {
+                    //Verification données e-mail
+                    $query = $connection->prepare("SELECT * FROM nuitinfo_users WHERE email = ?");
+                    $query->bind_param("s", $email);
+                    $query->execute();
+                    $result = $query->get_result();
+                    $query->close();
+                    $userData = $result->fetch_assoc();
 
-                        //Verification données e-mail
-                        $query = $connection->prepare("SELECT * FROM nuitinfo_users WHERE email = ?");
-                        $query->bind_param("s", $email);
+                    if ($userData['id'] == "") {
+
+                        //Verification données nom d'utilisateur
+                        $query = $connection->prepare("SELECT * FROM nuitinfo_users WHERE username = ?");
+                        $query->bind_param("s", $username);
                         $query->execute();
                         $result = $query->get_result();
                         $query->close();
@@ -131,37 +143,23 @@ function register($username, $email, $passwd, $passwd2, $connection) {
 
                         if ($userData['id'] == "") {
 
-                            //Verification données nom d'utilisateur
-                            $query = $connection->prepare("SELECT * FROM nuitinfo_users WHERE username = ?");
-                            $query->bind_param("s", $username);
+                            $salt = randomString(16);
+                            $password_salted_hashed = password_hash(hash('sha512', $passwd . $salt), PASSWORD_DEFAULT, ['cost' => 12]);
+                            $status = "ALIVE";
+
+                            $query = $connection->prepare("INSERT INTO nuitinfo_users (email, username, password, salt, status) VALUES (?,?,?,?,?)");
+                            $query->bind_param("sssss", $email, $username, $password_salted_hashed, $salt, $status);
                             $query->execute();
-                            $result = $query->get_result();
                             $query->close();
-                            $userData = $result->fetch_assoc();
 
-                            if ($userData['id'] == "") {
-
-                                $salt = randomString(16);
-                                $password_salted_hashed = password_hash(hash('sha512', $passwd . $salt), PASSWORD_DEFAULT, ['cost' => 12]);
-                                $status = "ALIVE";
-
-                                $query = $connection->prepare("INSERT INTO nuitinfo_users (email, username, password, salt, status) VALUES (?,?,?,?,?)");
-                                $query->bind_param("sssss", $email, $username, $password_salted_hashed, $salt, $status);
-                                $query->execute();
-                                $query->close();
-
-                                $result = "SUCCESS#Compte créé avec succès.#/";
-
-                            } else {
-                                $result = "ERROR_USED_USERNAME#Ce nom d'utilisateur est déjà utilisé.";
-                            }
+                            $result = "SUCCESS#Compte créé avec succès.#/";
 
                         } else {
-                            $result = "ERROR_USED_EMAIL#Cette adresse e-mail est déjà utilisée.";
+                            $result = "ERROR_USED_USERNAME#Ce nom d'utilisateur est déjà utilisé.";
                         }
 
                     } else {
-                        $result = "ERROR_INVALID_PASSWD2#Les deux mots de passe doivent correspondre.";
+                        $result = "ERROR_USED_EMAIL#Cette adresse e-mail est déjà utilisée.";
                     }
 
                 } else {
