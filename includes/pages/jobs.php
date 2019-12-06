@@ -25,7 +25,6 @@
 			<li>Stage</li>
 		</ul>
 		<div class="list-container">
-		<div class="list-container">
 			<?php jobsList($connection); ?>
 		</div>
 	</section>
