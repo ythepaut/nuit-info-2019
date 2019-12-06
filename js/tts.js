@@ -31,7 +31,7 @@ function speak(txt) {
 
     utterThis.voice = voice_fr;
     utterThis.pitch = 1;
-    utterThis.rate = 1;
+    utterThis.rate = 1.3;
     synth.speak(utterThis);
   }
 }
