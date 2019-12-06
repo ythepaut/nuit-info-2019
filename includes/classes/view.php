@@ -25,6 +25,10 @@ switch ($page) {
         include("./includes/pages/inscription.php");
         break;
 
+    case "handicap":
+        include("./includes/pages/handicap.php");
+        break;
+
     case "404":
     default:
         include("./includes/pages/404.php");
