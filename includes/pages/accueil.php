@@ -53,7 +53,7 @@
 			<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
 			<form action='./includes/classes/actions.php' method="POST" id="formToSubmit">
                 <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger">
-				<a href="#" onclick="document.querySelector('formToSubmit').submit();"><p>Télécharger le flyer</p></a>
+				<a href="#" onclick="document.querySelector('#formToSubmit').submit();"><p>Télécharger le flyer</p></a>
                 <input type="hidden" name="action" value="teleflyer" />
 			</from>
 			</div>
