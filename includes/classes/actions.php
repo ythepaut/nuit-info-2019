@@ -33,7 +33,7 @@ switch ($action) {
  * @return void
  */
 function ajoutService($title, $description, $categorie, $location, $connection) {
-    if (isset($title, $description, $categorie, $location, $ownerId) && $location != {} && $title != "" && $description != "" && $categorie != "") {
+    if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
         if (categorieExist($categorie)) {
             $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
             $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
