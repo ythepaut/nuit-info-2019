@@ -19,10 +19,10 @@
 			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
-					<a href="/connexion"><li>Connexion</li></a>
+					<a href="connexion.html"><li>Connexion</li></a>
 				</div>
 				<div>
-					<a href="/inscription"><li>Inscription</li></a>
+					<a href="inscription.html"><li>Inscription</li></a>
 				</div>
 			</nav>
 		</div>
@@ -31,11 +31,11 @@
 				<span class="hamburger-inner menu_h"></span>
 				</span>
 		</button>
-		<div class="menu_js">
+		<!--div class="menu_js">
 			<ul class="menu_ ul">
 				<li><a href="#">Connexion</a></li>
 				<li><a href="#">Inscription</a></li>
-		</div>
+		</div-->
 		<div id="selection" class="wrap-home">
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Ressources à droite">
@@ -45,17 +45,18 @@
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Services à droite">
 				<a href="/services"><p>Services</p></a>
 			</div>
-            <div>
-                <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
-                <form action='./includes/classes/actions.php' method="POST" id="formToSubmit">
-                    <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger">
-                    <a href="#" onclick="document.querySelector('#formToSubmit').submit();"><p>Télécharger le flyer</p></a>
-                    <input type="hidden" name="action" value="teleflyer" />
-                </from>
-            </div>
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Jobs à droite">
 				<a href="/jobs"><p>Jobs</p></a>
+			</div>
+			<div>
+			<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
+			<form action='./includes/classes/actions.php' method="POST">
+				<input type="hidden" name="action" value="teleflyer" />
+				<div style="text-align: center;">
+					<input type="submit" value="Téléchargement flyer" />
+				</div>
+			</from>
 			</div>
 		</div>
 
