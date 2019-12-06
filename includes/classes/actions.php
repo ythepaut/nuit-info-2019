@@ -21,6 +21,9 @@ switch ($action) {
     case "ajout-service":
         die(ajoutService($_POST['title'], $_POST['description'], $_POST['categorie'], $_POST['location'], $connection));
         break;
+    case "ajout-job":
+        die(ajoutJob($_POST['title'], $_POST['description'], $_POST['categorie'], $_POST['location'], $connection));
+        break;
     default:
         throw new Exception("ERROR_MISSING_ACTION");
         break;
@@ -192,7 +195,7 @@ function register($username, $email, $passwd, $passwd2, $connection) {
  * @param string            $description    - La description du service
  * @param string            $categorie      - La catégorie du service
  * @param array             $location       - La localisation du service
- * @param mysqlconnection   $connection         -   Connexion BDD effectuée dans le fichier config-db.php
+ * @param mysqlconnection   $connection     -   Connexion BDD effectuée dans le fichier config-db.php
  * 
  * @return void
  */
@@ -204,9 +207,52 @@ function ajoutService($title, $description, $categorie, $location, $connection) 
 
         if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
     
-            if (categorieExist($categorie)) {
+            if (categorieServiceExist($categorie)) {
 
                 $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
+                $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
+                $query->execute();
+                $query->close();
+
+                $result = "SUCCESS#Votre job a été ajouté avec succès.#null";
+            
+            } else {
+                $result = "ERROR_UNKNOWN_CATEGORY#Cette catégorie n'éxiste pas.";
+            }
+    
+        } else {
+            $result = "ERROR_MISSING_FIELDS#Veuillez remplir tous les champs.";
+        }
+
+    } else {
+        $result = "ERROR_INVALID_SESSION#Votre session est invalide. Déconnectez vous puis reconnectez vous. Si le problème persiste contactez le support.";
+    }
+
+
+}
+
+
+/**
+ * Foncton qui ajoute un Job dans la bdd
+ * @param string            $title          - Le titre du job
+ * @param string            $description    - La description du job
+ * @param string            $categorie      - La catégorie du job
+ * @param array             $location       - La localisation du job
+ * @param mysqlconnection   $connection     -   Connexion BDD effectuée dans le fichier config-db.php
+ * 
+ * @return void
+ */
+function ajoutJob($title, $description, $categorie, $location, $connection) {
+
+    $result = "ERROR_UNKNOWN#Une erreur est survenue.";
+
+    if (isValidSession($connection)) {
+
+        if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
+    
+            if (categorieJobExist($categorie)) {
+
+                $query = $connection->prepare("INSERT INTO nuitinfo_jobs (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
                 $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
                 $query->execute();
                 $query->close();

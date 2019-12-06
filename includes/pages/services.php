@@ -20,12 +20,10 @@
 	<section class="wrap-content">
 		<h1>Services</h1>
 		<ul>
-			<li>Aides financières</li>
-			<li>Aides sociales</li>
-			<li>Médecine</li>
-			<li>Handicap</li>
-			<li>Etudiants étrangers</li>
-			<li>Sport/Culture</li>
+			<li>Dons</li>
+			<li>Transports</li>
+			<li>Gardiennage</li>
+			<li>Troc</li>
 		</ul>
 		<div class="list-container">
 			<?php servicesList($connection); ?>
