@@ -29,7 +29,7 @@ function servicesList($connection) {
         $res .= '<br/>';
         $res .= '<p>'.$service["description"].'</p>';
         $res .= '<p> de '.$owner["username"].'</p>';
-        $res .= '<br/>'
+        $res .= '<br/>';
         $res .= '<p>'.$location["street"].', '.$location["city"].'</p>';
         $res .= '<p>'.date("d/m/Y H:i", $service["date"]).'</p>';
         $res .= '</div>';
@@ -71,7 +71,7 @@ function jobsList($connection) {
         $res .= '<br/>';
         $res .= '<p>'.$job["description"].'</p>';
         $res .= '<p> de '.$owner["username"].'</p>';
-        $res .= '<br/>'
+        $res .= '<br/>';
         $res .= '<p>'.$location["street"].', '.$location["city"].'</p>';
         $res .= '<p>'.date("d/m/Y H:i", $job["date"]).'</p>';
         $res .= '</div>';

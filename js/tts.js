@@ -58,7 +58,7 @@ body.addEventListener('mousemove', e => {
         balise = elements[i];
         var nodeType = balise.nodeName.toLowerCase();
 
-        if (["p", "h1", "h2", "h3", "h4", "h5", "h6", "label", "li", "button"].includes(nodeType)) {
+        if (["p", "h1", "h2", "h3", "h4", "h5", "h6", "label", "a", "button", "li"].includes(nodeType)) {
             text = balise.innerHTML;
             inside = true;
         } else if (nodeType === "img" && balise.alt !== "") {
@@ -66,6 +66,10 @@ body.addEventListener('mousemove', e => {
             inside = true;
         } else {}
     }
+
+    var div = document.createElement("div");
+    div.innerHTML = text;
+    text = div.textContent || div.innerText || "";
 
     if (inside) {
         if (balise === balise_precedente) {

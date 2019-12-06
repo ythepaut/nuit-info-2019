@@ -1,7 +1,7 @@
 <!--
 <h2><?php echo(($_SESSION["blindMode"]) ? true : false);?></h2>
 
-<form action='./includes/classes/actions.php' method="POST"> 
+<form action='./includes/classes/actions.php' method="POST">
     <input type="hidden" name="action" value="blind-mode" />
     <div style="text-align: center;">
         <input type="submit" value="Mode Aveugle" />
@@ -31,11 +31,11 @@
 				<span class="hamburger-inner menu_h"></span>
 				</span>
 		</button>
-		<div class="menu_js">
-			<ul class="menu_ul">
+		<!--div class="menu_js">
+			<ul class="menu_ ul">
 				<li><a href="#">Connexion</a></li>
 				<li><a href="#">Inscription</a></li>
-		</div>
+		</div-->
 		<div id="selection" class="wrap-home">
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Ressources à droite">
@@ -48,6 +48,15 @@
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Jobs à droite">
 				<a href="/jobs"><p>Jobs</p></a>
+			</div>
+			<div>
+			<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
+			<form action='./includes/classes/actions.php' method="POST">
+				<input type="hidden" name="action" value="teleflyer" />
+				<div style="text-align: center;">
+					<input type="submit" value="Téléchargement flyer" />
+				</div>
+			</from>
 			</div>
 		</div>
 
