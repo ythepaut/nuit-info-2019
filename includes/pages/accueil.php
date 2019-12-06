@@ -19,10 +19,10 @@
 			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
-					<li><a href="/connexion">Connexion</a></li>
+					<a href="connexion.html"><li>Connexion</li></a>
 				</div>
 				<div>
-					<li><a href="/inscription">Inscription</a></li>
+					<a href="inscription.html"><li>Inscription</li></a>
 				</div>
 			</nav>
 		</div>
@@ -48,6 +48,15 @@
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Jobs à droite">
 				<a href="/jobs"><p>Jobs</p></a>
+			</div>
+			<div>
+			<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
+			<form action='./includes/classes/actions.php' method="POST"> 
+				<input type="hidden" name="action" value="teleflyer" />
+				<div style="text-align: center;">
+					<input type="submit" value="Téléchargement flyer" />
+				</div>
+			</from> 
 			</div>
 		</div>
 
