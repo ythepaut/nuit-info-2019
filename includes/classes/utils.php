@@ -66,9 +66,9 @@ function isValidSession($connection) {
 
 /**
  * Fonction qui indique si la catégorie du service sélectionnée est valide
- * 
+ *
  * @param string        $categorie              -   Categorie a verifier
- * 
+ *
  * @return boolean
  */
 function categorieServiceExist($categorie) {
@@ -78,9 +78,9 @@ function categorieServiceExist($categorie) {
 
 /**
  * Fonction qui indique si la catégorie du job sélectionnée est valide
- * 
+ *
  * @param string        $categorie              -   Categorie a verifier
- * 
+ *
  * @return boolean
  */
 function categorieJobExist($categorie) {
@@ -152,7 +152,7 @@ function downloadFile($content, $name = null, $from_string = false) {
             unlink($file);
         }
     } else {
-        echo(var_dump(file_exists($file))."     ".var_dump($file));//header("Location : /404");
+        header("Location : /404");
     }
 }
 ?>
