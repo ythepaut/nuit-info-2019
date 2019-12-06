@@ -12,6 +12,9 @@ require_once("./includes/classes/config-db.php");
 #Fonctions utiles
 include_once("./includes/classes/utils.php");
 
+#Fonctions d'affichage
+include_once("./includes/classes/display.php");
+
 #Affichage de la page web
 include("./includes/classes/view.php");
 

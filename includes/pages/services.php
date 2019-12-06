@@ -35,15 +35,7 @@
 			<li>Sport/Culture</li>
 		</ul>
 		<div class="list-container">
-			<div class="list-element">
-				<div>
-					<h2>HELICE</h2>
-					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
-				</div>
-				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="">
-				</div>
-			</div>
+			<?php servicesList($connection); ?>
 		</div>
 	</section>
 

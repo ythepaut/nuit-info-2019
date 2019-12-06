@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+include_once(getcwd() . "config-db.php");
 include_once(getcwd() . "/utils.php");
 
 $action = (isset($_POST['action'])) ? $_POST['action'] : "";
