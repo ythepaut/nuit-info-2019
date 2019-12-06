@@ -14,17 +14,27 @@
 
 <?php include("./includes/pages/header.php"); ?>
 
-<body id="index" class="wrap">
-		<div id="navigation-home">
+<body id="index">
+		<div id="navigation-home" class="wrap">
 			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
-					<li>Connexion</li>
+					<li><a href="connexion.html">Connexion</a></li>
 				</div>
 				<div>
-					<li>Inscription</li>
+					<li><a href="inscription.html">Inscription</a></li>
 				</div>
 			</nav>
+		</div>
+		<button class="hamburger hamburger--squeeze menu_h" type="button">
+				<span class="hamburger-box menu_h">
+				<span class="hamburger-inner menu_h"></span>
+				</span>
+		</button>
+		<div class="menu_js">
+			<ul class="menu_ul">
+				<li><a href="#">Connexion</a></li>
+				<li><a href="#">Inscription</a></li>
 		</div>
 		<div id="selection" class="wrap-home">
 			<div>
@@ -42,6 +52,7 @@
 		</div>
 
 	<script src="<?php echo(getSrc("./js/libs/jquery.js")); ?>"></script>
+	<script src="<?php echo(getSrc("./js/menu_js.js")); ?>"></script>
 
 </body>
 
