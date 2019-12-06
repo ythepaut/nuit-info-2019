@@ -33,14 +33,35 @@ switch ($action) {
  * @return void
  */
 function ajoutService($title, $description, $categorie, $location, $connection) {
-    if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
-        if (categorieExist($categorie)) {
-            $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
-            $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
-            $query->execute();
-            $query->close();
+
+    $result = "ERROR_UNKNOWN#Une erreur est survenue.";
+
+    if (isValidSession($connection)) {
+
+        if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
+    
+            if (categorieExist($categorie)) {
+            
+                $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
+                $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
+                $query->execute();
+                $query->close();
+
+                $result = "SUCCESS#Votre service a été ajouté avec succès.#null";
+            
+            } else {
+                $result = "ERROR_UNKNOWN_CATEGORY#Cette catégorie n'éxiste pas.";
+            }
+    
+        } else {
+            $result = "ERROR_MISSING_FIELDS#Veuillez remplir tous les champs.";
         }
+
+    } else {
+        $result = "ERROR_INVALID_SESSION#Votre session est invalide. Déconnectez vous puis reconnectez vous. Si le problème persiste contactez le support.";
     }
+
+
 }
 
 ?>
