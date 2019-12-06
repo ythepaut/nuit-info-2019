@@ -62,9 +62,15 @@ body#index {
   padding-bottom: 2px;
   padding-left: 25px;
   padding-right: 25px;
+  margin-top: 10px;
 }
 #navigation-home nav li a {
   color: #FFFAD2;
+}
+
+#navigation-home nav div:hover, input[type=submit]:hover {
+  transition: background-color 0.3s ease-in-out;
+  background-color: #ae7fc8;
 }
 
 #selection {
@@ -77,7 +83,7 @@ body#index {
   margin-right: 20px;
   transform: rotate(180deg);
 }
-#selection p {
+#selection p, #selection a {
   font-weight: 800;
   font-size: 64px;
   letter-spacing: -2.4px;
@@ -125,6 +131,25 @@ body#index {
   transition-duration: 0.4s;
 }
 
+#selection a:after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 3px solid #473041;
+  padding-top: 10px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+#selection a:hover:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
 @media all and (max-width: 1170px) {
   .wrap-home {
     max-width: 100%;
@@ -134,12 +159,16 @@ body#index {
     padding-left: 10%;
     padding-right: 10%;
   }
-}
-@media all and (max-width: 980px) {
-  #selection {
-    margin-top: 10vh;
+
+  #selection p {
+    font-size: 55px;
   }
 
+  #selection {
+    margin-top: 0vh;
+  }
+}
+@media all and (max-width: 980px) {
   .wrap-home {
     max-width: 100%;
     margin-left: auto;
@@ -175,15 +204,31 @@ body#index {
     position: absolute;
     right: 3%;
   }
+
+  .menu_js {
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+  }
 }
 @media all and (max-width: 480px) {
+  .wrap {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   #selection {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    margin-top: 10vh;
   }
 
   #selection p {
-    font-size: 40px;
+    font-size: 36px;
+    margin-bottom: 5vh;
   }
 
   body#index {
@@ -200,12 +245,16 @@ body#index {
     padding-top: 5vh;
   }
 
-  .hamburger.is-active .hamburger-inner::after {
+  .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
     background-color: #473041;
   }
 
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     background-color: #473041;
+  }
+
+  .menu_ul li a {
+    padding-right: 0;
   }
 }
 body#ressources {
@@ -403,6 +452,10 @@ input[type=submit] {
   font-size: 15px;
   color: #FFFAD2;
   padding-top: 30px;
+}
+
+#inscription #navigation p, #connexion #navigation p {
+  color: #FFFAD2;
 }
 
 /*# sourceMappingURL=index.css.map */
