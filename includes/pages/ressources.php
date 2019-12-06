@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
-<head>
-	<title>Le bon étudiant - Ressources</title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/libs/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,500,600,700,800&display=swap" rel="stylesheet">
-</head>
+<?php include("./includes/pages/header.php"); ?>
+
+
 
 <body id="ressources" class="wrap">
 		<div id="navigation">
 			<div>
-				<a href="index.html">
-					<img src="img/arrow_left.svg" alt="">
+				<a href="/">
+                    <img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Retour à la page précédente">
 					<p>Retour</p>
 				</a>
 			</div>
 			<div>
 				<p>Mon compte</p>
-				<img src="img/icon_compte.svg" alt="">
+				<img src="<?php echo(getSrc("./resources/img/icon_compte.svg")); ?>" alt="Accéder à mon compte">
 			</div>
 
 		</div>
