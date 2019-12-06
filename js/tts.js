@@ -27,6 +27,7 @@ function speak(txt) {
     }
     utterThis.onerror = function (event) {
         console.error('Erreur TTS');
+        console.log(event);
     }
 
     utterThis.voice = voice_fr;
@@ -44,29 +45,40 @@ function speakGeneral() {
 
 var body = document.querySelector("html");
 
-var last_move = new Date().getTime();
+var balise_precedente = null;
 
 body.addEventListener('mousemove', e => {
-    last_move = new Date().getTime();
-    setTimeout(function() {
-        if (new Date().getTime() - last_move > 450) {
-            var elements = document.querySelectorAll(':hover');
+    let inside = false;
+    var text = "";
+    var balise = null;
 
-            for (let i=0; i<elements.length; i++) {
-                var nodeType = elements[i].nodeName.toLowerCase();
+    var elements = document.querySelectorAll(':hover');
 
-                if (["p", "h1", "h2", "h3", "h4", "h5", "h6", "label", "li"].includes(nodeType)) {
-                    speak(elements[i].innerHTML);
-                } else if (nodeType === "li") {
-                    speak(elements[i].innerHTML);
-                } else if (nodeType === "img") {
-                    if (elements[i].alt !== "") {
-                        speak(elements[i].alt);
-                    }
-                }
-            }
+    for (let i=0; i<elements.length; i++) {
+        balise = elements[i];
+        var nodeType = balise.nodeName.toLowerCase();
 
-            last_move = new Date().getTime();
+        if (["p", "h1", "h2", "h3", "h4", "h5", "h6", "label", "li", "button"].includes(nodeType)) {
+            text = balise.innerHTML;
+            inside = true;
+        } else if (nodeType === "img" && balise.alt !== "") {
+            text = balise.alt;
+            inside = true;
+        } else {}
+    }
+
+    if (inside) {
+        if (balise === balise_precedente) {
+            balise_precedente = balise;
+        } else {
+            balise_precedente = balise;
+            speak(text);
         }
-    }, 500);
+    } else {
+        balise_precedente = null;
+
+        if (synth.speaking) {
+            synth.cancel();
+        }
+    }
 });
