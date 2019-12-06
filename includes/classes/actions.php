@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-include_once(getcwd() . "config-db.php");
 include_once(getcwd() . "/utils.php");
 
 $action = (isset($_POST['action'])) ? $_POST['action'] : "";
@@ -23,6 +22,10 @@ switch ($action) {
         throw new Exception("ERROR_MISSING_ACTION");
         break;
 }
+
+
+
+
 /**
  * Foncton qui ajoute un service dans la bdd
  * @param string            $title          - Le titre du service
@@ -42,7 +45,7 @@ function ajoutService($title, $description, $categorie, $location, $connection) 
         if (isset($title, $description, $categorie, $location, $ownerId) && $location != "" && $title != "" && $description != "" && $categorie != "") {
     
             if (categorieExist($categorie)) {
-            
+
                 $query = $connection->prepare("INSERT INTO nuitinfo_services (title, description, categorie, location, date, owner) VALUES (?, ?, ?, ?, ?, ?) ");
                 $query->bind_param("ssssii", $title, $description, $categorie, $location, time(), $_SESSION['Data']['id']);
                 $query->execute();
