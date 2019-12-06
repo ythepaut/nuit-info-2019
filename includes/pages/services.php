@@ -20,23 +20,13 @@
 	<section class="wrap-content">
 		<h1>Services</h1>
 		<ul>
-			<li>Aides financières</li>
-			<li>Aides sociales</li>
-			<li>Médecine</li>
-			<li>Handicap</li>
-			<li>Etudiants étrangers</li>
-			<li>Sport/Culture</li>
+			<li>Dons</li>
+			<li>Transports</li>
+			<li>Gardiennage</li>
+			<li>Troc</li>
 		</ul>
 		<div class="list-container">
-			<div class="list-element">
-				<div>
-					<h2>HELICE</h2>
-					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
-				</div>
-				<div>
-					<img src="<?php echo(getSrc("./resources/img/plus.svg")); ?>" alt="Afficher plus d'informations">
-				</div>
-			</div>
+			<?php servicesList($connection); ?>
 		</div>
 	</section>
 
