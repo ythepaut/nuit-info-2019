@@ -31,11 +31,11 @@
 				<span class="hamburger-inner menu_h"></span>
 				</span>
 		</button>
-		<!--div class="menu_js">
+		<div class="menu_js">
 			<ul class="menu_ ul">
 				<li><a href="#">Connexion</a></li>
 				<li><a href="#">Inscription</a></li>
-		</div-->
+		</div>
 		<div id="selection" class="wrap-home">
 			<div>
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Ressources à droite">
