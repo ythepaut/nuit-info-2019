@@ -49,6 +49,15 @@
 				<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Jobs à droite">
 				<a href="/jobs"><p>Jobs</p></a>
 			</div>
+			<div>
+			<img src="<?php echo(getSrc("./resources/img/arrow_left.svg")); ?>" alt="Télécharger le flyer à droite">
+			<form action='./includes/classes/actions.php' method="POST"> 
+				<input type="hidden" name="action" value="teleflyer" />
+				<div style="text-align: center;">
+					<input type="submit" value="Téléchargement flyer" />
+				</div>
+			</from> 
+			</div>
 		</div>
 
 	<script src="<?php echo(getSrc("./js/libs/jquery.js")); ?>"></script>
