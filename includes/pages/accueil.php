@@ -16,7 +16,7 @@
 
 <body id="index" class="wrap">
 		<div id="navigation-home">
-			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="">
+			<img id="logo" src="<?php echo(getSrc("./resources/img/logo.svg")); ?>" alt="Logo Le Bon étudiant">
 			<nav>
 				<div>
 					<li>Connexion</li>
