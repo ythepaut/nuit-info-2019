@@ -20,12 +20,9 @@
 	<section class="wrap-content">
 		<h1>Jobs</h1>
 		<ul>
-			<li>Aides financières</li>
-			<li>Aides sociales</li>
-			<li>Médecine</li>
-			<li>Handicap</li>
-			<li>Etudiants étrangers</li>
-			<li>Sport/Culture</li>
+			<li>CDI</li>
+			<li>CDD</li>
+			<li>Stage</li>
 		</ul>
 		<div class="list-container">
 		<div class="list-container">
