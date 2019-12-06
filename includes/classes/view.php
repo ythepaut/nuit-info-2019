@@ -15,6 +15,12 @@ switch ($page) {
     case "services":
         include("./includes/pages/services.php");
         break;
+    case "aides":
+        include("./includes/pages/financals_aids.php");
+        break;
+    case "medecine":
+        include("./includes/pages/medecine.php");
+        break;
     case "jobs":
         include("./includes/pages/jobs.php");
         break;

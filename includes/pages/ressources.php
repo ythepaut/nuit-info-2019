@@ -20,8 +20,8 @@
 	<section class="wrap-content">
 		<h1>Ressources</h1>
 		<ul>
-			<li>Aides financières</li>
-			<li>Aides sociales</li>
+			<li><a href="/aides">Aides financières</a></li>
+			<li><a href="/medecine">Aides sociales</a></li>
 			<li>Médecine</li>
 			<li>Handicap</li>
 			<li>Etudiants étrangers</li>
@@ -30,7 +30,7 @@
 		<div class="list-container">
 			<div class="list-element">
 				<div>
-					<h2>HELICE</h2>
+					<h2>HELICE</h2>"<?php echo(getSrc("./resources/img/plus.svg")); ?>"
 					<p>Le bourget du Lac, très bon bail la formule sandwich Je conseille fortement</p>
 				</div>
 				<div>
